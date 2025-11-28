@@ -42,6 +42,7 @@ class Grandma(val GrandmaWorld: World)
     
   def ifSuccessfullCookies(player: PlayerObject) =
     val cookies = Item(this.world, "cookies", "delicious cookies from your grandma")
+    val x = this.requiredObjects.keys.toVector.foreach( x => player.removeItem(x) )
     player.addItem(cookies)
     player.changeHappines(0.2)
     s"Thank you darling! You are amazing. Come here, give me a hug.\nYou gain: ${cookies.name}"

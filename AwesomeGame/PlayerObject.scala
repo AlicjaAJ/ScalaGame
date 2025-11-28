@@ -10,18 +10,15 @@ class PlayerObject(world: World, initialPosition: Area):
   private var currentLocation = this.initialPosition
   // ITEMS COLLECTED BY THE PLAYER WITH A GIVEN NAME
   private val inventory = Map[String, Item]()
-  // AMOUNT OF MONEY CHARACTER HAS. INITIALLY SET TO 0 (WE ARE POOR, OK?)
-  private var money = 0.0
   /* PLAYER'S HAPPINESS LEVEL. THE NUMBER OSCILATES BETWEEN 0.0 AND 1.0.
      X < 0.5 - PLAYER IS UNHAPPY. IF THE PLAYER'S HAPPINESS LEVEL IS BELOW HALF WHEN THE PLAYER REACHES THE HOUSE, THE GAME IS LOST.
      X = 5.0 - PLAYER IS ON AVERAGE HAPPY. IF YOU REACH THE HOUSE WITH A HAPPINESS LEVEL OF 0.5, YOU GET A SPECIAL MESSAGE OF 'THE CHARACTER IS STARING AT THE WALL'.
      X > 0.5 - PLAYER IS HAPPY. YOU WIN, CONGRATS.
     INITIALLY THE PLAYER IS AVERAGE HAPPY. */
-  private var happinesLevel: Double = 0.2
+  private var happinesLevel: Double = 0.25
   /* PLAYER'S HEALTH LEVEL. WE START THE GAME WITH AN INITIAL (AND MAXIMUM) HEAL LEVEL OF 42.
      HEALTH LEVEL DECREASES WHEN THE CHARACTER TAKES DAMAGE.
      HEALTH LEVEL CAN BE REGAINED IF WE USE SPECIAL OBJECTS FX. COOKIES. HOWEVER, HEALTH LEVEL CAN NEVER EXCEED 42. */
-  private var healthLevel: Int = 42
   
   
   /*                    HAPPINESS LEVEL FUNCTIONS                           */
@@ -46,21 +43,6 @@ class PlayerObject(world: World, initialPosition: Area):
       this.happinesLevel = 0.0
     else
       this.happinesLevel = potentialHappiness
-
-
-  /*                    HEALTH LEVEL FUNCTIONS                           */
-
-  /* returns the health level of the player*/
-  def howHealthy = this.healthLevel
-  /* changes the health level of the player by the given amount. If x is negative, then the health level decreases.
-     Health level can be a maximum of 100. There is no minimum; however, if the health level is smaller than or equal to 0, the game is lost.
-     If the player reached health level 100 and gains positive health, the health level won't change. */
-  def changeHealth(x: Int) =
-    val potentialHealth = (this.healthLevel + x)
-    if potentialHealth > 100 then
-      this.healthLevel = 100
-    else
-      this.healthLevel = potentialHealth
 
   /*                    POSITION FUNCTIONS                           */
 
@@ -127,6 +109,13 @@ class PlayerObject(world: World, initialPosition: Area):
       case None    =>
         s"There is no $itemName here to pick up."
   
+  def eat(cookiesName: String) = 
+    if this.inventory.contains(cookiesName) then
+      this.removeItem(cookiesName)
+      this.changeHappines(0.1)
+      "You ate Grandma's cookies. You gain +0.1 happiness. You have no more cookies. If you don't believe me, check"
+    else
+      "You don't have any cookies, loser. Maybe go and ask your grandma"
 
 
   def getHelpString: String = "no help for strong people"

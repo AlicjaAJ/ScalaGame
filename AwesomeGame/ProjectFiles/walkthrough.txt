@@ -1,0 +1,34 @@
+To win the game, You need:
+-to reach the house,
+-have happiness level above 0.5 (you start with 0.25)
+
+There is multiple ways to reach the correct happiness level, but this one is the most effective:
+1. Nothing flied: go north (command: go north)
+2 Crossroad: go north (command: go north)
+3. Gladd ball of wisdom: talk to Glass ball of wisdom (command: talk_to glass ball of wisdom)
+4. Answer the riddle correctly (possible riddle-answer pairs below) (command: talk_to glass ball of wisdom: <answer>)
+
+    r1: "I am built without bricks, wood, or stone, and offer a refuge when you feel alone. I can be empty, full of sorrow, or full of light. I grow bigger as you get older, and you only own one. What am I? ", "memory")
+    r2: "I am weightless and can be seen, but you can only truly feel me when I'm gone. I am the great equalizer, yet no one can own me. I steal your moments, but give you experience in return. What am I? ", "time")
+    r3: "I have no voice, but I can imitate yours perfectly. I follow you in the day, yet vanish when the sun sets completely. I am your constant companion, yet hold no substance. What am I? ", "shadow")
+    r4: I travel without a single step and create pictures you cannot see. I have no hands, but I can break a house into dust. I am feared, but I am necessary. What am I?" , "wind")
+    r5: "I am always hungry, I must always be fed. The finger I lick will soon turn red. I start small, but I can consume the entire world. What am I?" , "fire")
+    r6: "I have no life, but I can die. I am not a clock, but I measure your day. I have a face, but no body. What am I?" , "candle")
+    r7: "I am full of holes, yet still hold water. I am always waiting to be broken. I can be worn, but I am not clothing. What am I?" , "promise")
+    r8: "I have no voice, but when I break, I make a loud noise. I am strongest when I am new. I let you see the world, but I am sometimes held prisoner by wood. What am I?" , "glass")
+    r9: "I am always coming, but never arrive. I can be planned, but never possessed. I start when the current day ends. What am I?" , "tomorrow")
+
+5. After answering it 3 times correctly, go south and east (command: go south, go east)
+6. Grandma's house: talk to Grandma( command: talk_to grandma)
+7. Collect required objects (AND ONLY THOSE!!!! OTHERWISE YOU LOSE)
+  Sugar is in the kitchen -> go south from the living room
+  Flower is in the bathroom -> go east from the kitchen
+  Eggs are in the bedroom -> go east and go east from the living room
+8. Come back to Grandma and talk to her (command: talk_to grandma)
+9. Eat cookies you have gained (command: eat cookies)
+10. go north twice (command: go north, go north)
+11. Talk to the soup man (command: talk_to the soup man)
+12. Many ways of winning (especially if you have not eaten the cookies), but probably the best is to negotiate. So choose 2 (command: talk_to the soup man: 2)
+13. Pick up correct answers: b, c, c (command: talk_to the soup man: b, talk_to the soup man: c, talk_to the soup man: c)
+14. Go east
+15. End (depending on your happiness level, you get different results: if you are unhappy, you lose)

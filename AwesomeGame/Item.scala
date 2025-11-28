@@ -19,4 +19,9 @@ class Soup(val soupWorld: World) extends Item(soupWorld, "soup", "The best soup 
     this.world.player.changeHappines(0)
   
 end Soup
+
+class Cookies(val cookieWorld: World) extends Item(cookieWorld, "cookies", "delicious cookies from your grandma. eating a cookie give you +.1 happiness"):
+  
+
+
   

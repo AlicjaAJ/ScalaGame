@@ -9,7 +9,7 @@ import o1.AwesomeGame.{PlayerObject, Skill, Soup, World}
                  description : String,             // the description of the object
                  initialHealthLevel : Int,         // the initial health level of the enemy, aka how hard you have to hit it to kill it
                  demage      : Option[Int])        //damage caused by the enemy's attack if any
-  extends Enemy( "XXX", interactable, worldID, "The Soup Man", "XXX", 20, None): */
+  extends Enemy( "", interactable, worldID, "The Soup Man", "It is the dirtman (https://www.youtube.com/shorts/Su4Kb-roLZE) but for soup, he really likes selling it as well. Also really likes to negotiate!", 20, None): */
 
 class SoupMan(val soupWorld: World)
   extends Enemy(soupWorld, "the soup man", "Soup Man from your local town. He makes the greatest soup of all times.", 20):
@@ -36,8 +36,8 @@ class SoupMan(val soupWorld: World)
     s"\nBefore you attempt to cheapen this masterpiece, tell me: Do you understand the value of a soup that has been gazed upon by a sentient swan?" +
     s"\nWhat do you answer?" + 
     s"\na. That sounds highly unsanitary. Swans carry diseases." + // Incerrect
-    s"\nb. A swan's gaze! That must add at least 450 gold to the value alone. I am in awe." + // Correct
-    s"\nc. I have 500 gold. Take it, I'm starving, and let's skip the swan story." // Incorrect
+    s"\nb. A swan's gaze! That must add at least .9 happiness to the value alone. I am in awe." + // Correct
+    s"\nc. I have .9 happiness. Take it all, I'm starving, and let's skip the swan story." // Incorrect
   
   def negotiatePriceRound2(player: PlayerObject) =
     count += 1
@@ -45,7 +45,7 @@ class SoupMan(val soupWorld: World)
     s"But I must consider my overhead! This broth simmers in a pot made from the melted-down regrets of a retired pirate. How can you justify a lower price?" +
     s"\nWhat do you answer?" + 
     s"\na. Regrets are free. Pirates have lots of them. You're trying to con me." + // Incerrect
-    s"\nb. Melted metal costs money. I'll pay 50 gold for the soup, and you keep the pot." + // Incorrect
+    s"\nb. Melted metal costs money. I'll pay in attention (.1 happiness) for the soup, and you keep the pot." + // Incorrect
     s"\nc. While the pirate's remorse is valuable, true regret is lightweight. Therefore, the pot is a meager 100 gold, which I will not pay for soup." // Correct
     
   def negotiatePriceRound3(player: PlayerObject) =
@@ -76,7 +76,7 @@ class SoupMan(val soupWorld: World)
       s"Sorry. You have already bought my soup. I don't hae more. Come back later."
     else
       s"Welcome! I have a delicious soup. It costs ${this.soupsPrice} happiness points. Do you want to buy it?\n What would you like to do?" +
-          s"\n 1. Buy soup for ${this.soupsPrice} coins." +
+          s"\n 1. Buy soup for ${this.soupsPrice} happiness points." +
           s"\n 2. Negotiate price." +
           s"\n 3. Bribe with cookies." +
           s"\n 4. Leave." +

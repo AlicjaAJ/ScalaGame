@@ -18,6 +18,7 @@ class GlassBall(val GlassWorld: World)
   private var availableAttempts = 3
 
   private var isInterractable = true
+  private var isStarted = false
   
   /* adds new riddle and answer to it to the map of riddles. */
   def addRiddle(riddle: String, answer: String) = this.riddlesAndAnswers += (riddle -> answer)
@@ -26,8 +27,12 @@ class GlassBall(val GlassWorld: World)
     if this.isInterractable && this.availableAttempts > 0 then
       this.chosenRiddle = scala.util.Random.shuffle(this.riddlesAndAnswers.toVector).take(1)
       val (r, a) = this.chosenRiddle(0)
-      s"Welcome traveler! I see that you decided to get off the path and wonder around. You are not very busy of a person, aren't you? Anyway! I have a question for you!" +
-      s"\nThe Glass Ball of Wisdom (aka me. HAhaaha) wants to know:\n ${r}"
+      if this.isStarted then
+        s"\nThe Glass Ball of Wisdom (aka me. HAhaaha) wants to know:\n ${r}"
+      else
+        this.isStarted = true
+        s"Welcome traveler! I see that you decided to get off the path and wonder around. You are not very busy of a person, aren't you? Anyway! I have a question for you!" +
+        s"\nThe Glass Ball of Wisdom (aka me. HAhaaha) wants to know:\n ${r}"
     else if !this.isInterractable && this.availableAttempts > 0 then
       s"You are already done. Why do you want to go through this hell again? No no no. You are done here."
     else
